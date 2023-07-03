@@ -27,16 +27,8 @@
     {
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
-        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=(?<currentValue>.*)\\s"
-      ],
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-    },
-    {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": [
-        "ARG IMAGE=(?<depName>.*?):(?<currentValue>.*?)@(?<currentDigest>sha256:[a-f0-9]+)\\s"
-      ],
-      "datasourceTemplate": "docker"
+        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)\\sARG .*?_VERSION=(?<currentValue>v.*)\\s"
+      ]
     }
   ]
 }
