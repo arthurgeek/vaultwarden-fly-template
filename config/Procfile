@@ -1,0 +1,4 @@
+vaultwarden: /vaultwarden.sh
+caddy: caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+setupmsmtp: /setup-msmtp.sh
+backup: supercronic /crontab

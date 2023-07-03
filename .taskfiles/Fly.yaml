@@ -1,0 +1,7 @@
+---
+version: "3"
+
+includes:
+  app: FlyApp.yaml
+  volume: FlyVolume.yaml
+  secrets: FlySecrets.yaml

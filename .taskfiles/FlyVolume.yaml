@@ -1,0 +1,7 @@
+---
+version: "3"
+
+tasks:
+  create:
+    cmds:
+      - fly volumes create vw_data --size 1 -a {{.FLY_APP}}

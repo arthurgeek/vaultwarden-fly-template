@@ -1,0 +1,22 @@
+---
+version: "3"
+
+includes:
+  logs: FlyLogs.yaml
+
+tasks:
+  create:
+    cmds:
+      - |
+        fly_app=$(fly apps create --generate-name 2>&1 | tee /dev/tty)
+        echo $fly_app | awk -F 'New app created:\ ' '{print "\n# Fly app name\nFLY_APP="$2}' >> .config.env
+    silent: true
+  destroy:
+    cmds:
+      - fly apps destroy {{.FLY_APP}}
+  deploy:
+    cmds:
+      - fly deploy -a {{.FLY_APP}}
+  ssh:
+    cmds:
+      - fly ssh console -a {{.FLY_APP}}

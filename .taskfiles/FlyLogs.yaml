@@ -1,0 +1,10 @@
+---
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - fly logs -a {{.FLY_APP}}
+  web:
+    cmds:
+      - open https://fly.io/apps/{{.FLY_APP}}/monitoring

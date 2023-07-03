@@ -1,0 +1,11 @@
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[mounts]
+  source = "vw_data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 80
+  force_https = true
+  min_machines_running = 1

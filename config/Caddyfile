@@ -1,0 +1,46 @@
+{
+	# HTTPS/TLS is handled by Fly or on your domain (eg: Cloudflare)
+	auto_https off
+	admin off
+	persist_config off
+
+	log {
+		output stdout
+		format json
+	}
+}
+
+{$DOMAIN_NAME}:80 {
+	encode gzip
+
+	header / {
+		# Enable HTTP Strict Transport Security (HSTS)
+		Strict-Transport-Security "max-age=31536000;"
+		# Enable cross-site filter (XSS) and tell browser to block detected attacks
+		X-XSS-Protection "1; mode=block"
+		# Disallow the site to be rendered within a frame (clickjacking protection)
+		X-Frame-Options "DENY"
+		# Prevent search engines from indexing
+		X-Robots-Tag "noindex, nofollow"
+		# Disallow sniffing of X-Content-Type-Options
+		X-Content-Type-Options "nosniff"
+		# Server name removing
+		-Server
+		# Remove X-Powered-By though this shouldn't be an issue, better opsec to remove
+		-X-Powered-By
+		# Remove Last-Modified because etag is the same and is as effective
+		-Last-Modified
+	}
+
+	# The negotiation endpoint is also proxied to Rocket
+	reverse_proxy /notifications/hub/negotiate localhost:8080
+
+	# Notifications redirected to the websockets server
+	reverse_proxy /notifications/hub localhost:3012
+
+	# Proxy everything else to Rocket
+	reverse_proxy localhost:8080 {
+		# Send the true remote IP to Rocket, so that vaultwarden can put this in the log
+		header_up X-Real-IP {remote_host}
+	}
+}

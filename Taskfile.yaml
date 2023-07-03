@@ -1,0 +1,13 @@
+---
+version: "3"
+
+dotenv: [".config.env"]
+
+includes:
+  fly: .taskfiles/Fly.yaml
+
+tasks:
+  default:
+    cmds:
+      - task --list-all
+    silent: true
