@@ -34,7 +34,7 @@ jobs:
     needs: [check-fly-secret]
     if: needs.check-fly-secret.outputs.fly-secret-exists == 'true'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
       - uses: superfly/flyctl-actions/setup-flyctl@master
         with:
           version: 0.1.54
