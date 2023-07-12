@@ -1,0 +1,7 @@
+---
+version: "3"
+
+tasks:
+  deploy:
+    cmds:
+      - gh workflow run fly-deploy.yaml
