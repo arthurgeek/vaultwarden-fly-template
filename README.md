@@ -132,6 +132,37 @@ You can scroll your tmux window with `Ctrl-B-]` and use
 Substitute `vaultwarden` with `caddy`, or `backup` to see logs for
 other apps.
 
+## Automatically deploy to Fly.io
+
+After your first manual deploy to Fly.io, per instructions above, you can automatically deploy via Github Actions.
+
+1. Install [Github CLI](https://cli.github.com)
+
+    ```sh
+    brew install gh
+    ```
+
+1. Login to Github
+
+    ```sh
+    gh auth login
+    ```
+
+1. Set Fly secrets to your Github repo
+
+    ```sh
+    task github:secrets:set
+    ```
+
+1. Test your workflow deployment
+
+    ```sh
+    task github:workflow:deploy
+    ```
+
+That's all! Now, any changes to your `Dockerfile`, `fly.toml` or
+`scripts`/`config` will trigger an automatic fly deploy.
+
 ## FAQ
 
 1. Why every `fly` command I run errors with: `Error: the config for your app is missing an app name`?

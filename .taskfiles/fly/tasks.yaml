@@ -1,0 +1,7 @@
+---
+version: "3"
+
+includes:
+  app: app.yaml
+  volume: volume.yaml
+  secrets: secrets.yaml
