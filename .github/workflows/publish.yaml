@@ -1,0 +1,49 @@
+---
+name: Publish container
+
+on:
+  workflow_dispatch: {}
+  push:
+    tags:
+      - "*"
+    branches:
+      - main
+    paths:
+      - DOCKERFILE
+      - config/**
+      - scripts/**
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to ghcr
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Container meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            ghcr.io/${{ github.repository }}
+          tags: |
+            type=raw, value=latest, enable={{is_default_branch}}
+            type=semver, pattern={{version}}
+            type=ref, event=branch
+            type=ref, event=tag
+            type=ref, event=pr
+
+      - name: Build and push to ghcr
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
