@@ -1,1 +1,2 @@
 @hourly /restic-backup.sh
+@hourly /usr/bin/find /var/log/restic/ -name "*.log" -type f -mmin +600 -exec rm -f {} \;
