@@ -132,9 +132,9 @@ You can scroll your tmux window with `Ctrl-B-]` and use
 Substitute `vaultwarden` with `caddy`, or `backup` to see logs for
 other apps.
 
-## Automatically deploy to Fly.io
+## Continuous deployment
 
-After your first manual deploy to Fly.io, per instructions above, you can automatically deploy via Github Actions.
+After your first manual deploy to Fly.io, per instructions above, you can setup continuous deployment via Github Actions.
 
 1. Install [Github CLI](https://cli.github.com)
 
@@ -161,7 +161,7 @@ After your first manual deploy to Fly.io, per instructions above, you can automa
     ```
 
 That's all! Now, any changes to your `Dockerfile`, `fly.toml` or
-`scripts`/`config` will trigger an automatic fly deploy.
+`scripts`/`config` will trigger a fly deploy.
 
 ## FAQ
 
