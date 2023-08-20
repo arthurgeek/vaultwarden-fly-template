@@ -16,6 +16,7 @@ tasks:
       - fly apps destroy {{.FLY_APP}}
   deploy:
     cmds:
+      - task: :secrets:set
       - fly deploy -a {{.FLY_APP}}
   ssh:
     cmds:
