@@ -9,3 +9,13 @@ kill_timeout = 5
   internal_port = 80
   force_https = true
   min_machines_running = 1
+
+[checks]
+  [checks.alive]
+    grace_period = "30s"
+    interval = "15s"
+    method = "get"
+    path = "/alive"
+    port = 80
+    timeout = "10s"
+    type = "http"
