@@ -13,7 +13,7 @@ FROM vaultwarden/server:1.30.0-alpine as vaultwarden
 #
 # Supercronic
 #
-FROM alpine:3.18 as supercronic
+FROM alpine:3.19 as supercronic
 
 ARG SUPERCRONIC_VERSION
 ARG OVERMIND_VERSION
@@ -29,7 +29,7 @@ RUN wget "$SUPERCRONIC_URL" && chmod +x "$SUPERCRONIC"
 #
 # Overmind
 #
-FROM alpine:3.18 as overmind
+FROM alpine:3.19 as overmind
 
 ARG OVERMIND_VERSION
 ARG SUPERCRONIC
