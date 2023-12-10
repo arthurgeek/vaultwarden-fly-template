@@ -46,7 +46,7 @@ RUN wget "$OVERMIND_URL" && gunzip ${OVERMIND_FILE} && chmod +x "$OVERMIND"
 #
 # Fly app
 #
-FROM caddy:2.7.5-alpine
+FROM caddy:2.7.6-alpine
 
 ARG SUPERCRONIC
 ARG OVERMIND
