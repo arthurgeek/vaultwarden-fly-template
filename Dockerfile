@@ -1,5 +1,5 @@
 # renovate: datasource=github-releases depName=aptible/supercronic
-ARG SUPERCRONIC_VERSION=v0.2.28
+ARG SUPERCRONIC_VERSION=v0.2.29
 
 # renovate: datasource=github-releases depName=DarthSim/overmind
 ARG OVERMIND_VERSION=v2.4.0
