@@ -32,12 +32,6 @@
 		-Last-Modified
 	}
 
-	# The negotiation endpoint is also proxied to Rocket
-	reverse_proxy /notifications/hub/negotiate localhost:8080
-
-	# Notifications redirected to the websockets server
-	reverse_proxy /notifications/hub localhost:3012
-
 	# Proxy everything else to Rocket
 	reverse_proxy localhost:8080 {
 		# Send the true remote IP to Rocket, so that vaultwarden can put this in the log

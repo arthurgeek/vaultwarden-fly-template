@@ -1,9 +1,8 @@
 # Template for deploying [Vaultwarden] on [Fly.io]
 
 This is a template for deploying [Vaultwarden] on [Fly.io] with
-[Caddy](https://caddyserver.com) for [websockets] support and
-[supercronic](https://github.com/aptible/supercronic) for hourly
-[restic](https://restic.net) backups with e-mail failure notification
+[Caddy](https://caddyserver.com) and [supercronic](https://github.com/aptible/supercronic)
+for hourly [restic](https://restic.net) backups with e-mail failure notification
 via [msmtp](https://marlam.de/msmtp/).
 
 This uses a single fly machine, within Fly's [free allowance](https://fly.io/docs/about/pricing/#free-allowances).
@@ -204,5 +203,4 @@ That's all! Now, any changes to your `Dockerfile`, `fly.toml` or
 
 [Vaultwarden]: https://github.com/dani-garcia/vaultwarden
 [Fly.io]: https://fly.io
-[websockets]: https://github.com/dani-garcia/vaultwarden/wiki/Enabling-WebSocket-notifications
 [fly.toml]: fly.toml
