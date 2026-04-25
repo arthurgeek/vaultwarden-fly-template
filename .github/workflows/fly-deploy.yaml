@@ -39,7 +39,7 @@ jobs:
         with:
           version: 0.1.54
       - name: Install Task
-        uses: arduino/setup-task@v1
+        uses: arduino/setup-task@b91d5d2c96a56797b48ac1e0e89220bf64044611 # v2.0.0
         with:
           # renovate: datasource=github-releases depName=go-task/task
           version: 3.27.1
