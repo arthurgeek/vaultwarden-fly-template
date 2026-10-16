@@ -2,7 +2,7 @@
 ARG SUPERCRONIC_VERSION=v0.2.29
 
 # renovate: datasource=github-releases depName=DarthSim/overmind
-ARG OVERMIND_VERSION=v2.4.0
+ARG OVERMIND_VERSION=v2.5.1
 
 # Binary file names
 ARG SUPERCRONIC=supercronic-linux-amd64
