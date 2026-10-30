@@ -35,7 +35,7 @@ jobs:
     if: needs.check-fly-secret.outputs.fly-secret-exists == 'true'
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - uses: superfly/flyctl-actions/setup-flyctl@98172f70657cb3e15db199af139be99bd3e61200 # master
         with:
           version: 0.4.122
       - name: Install Task
